@@ -4,7 +4,7 @@
       <p  id="title">Election</p>
     </div>
     <section class="container">
-      <div class="watch" v-show="data.election_isOpen">
+      <div class="watch" v-show="isElectionOpen">
         <span class="countdown_title">Until the end left</span>
         <div class="countdown"></div>
       </div>
@@ -12,52 +12,51 @@
         <tr>
           <th>#</th>
           <th>Candidate name</th>
-          <th>Kargaxos</th>
         </tr>
-        <tr v-for="candidate in data.candidates" :key="candidate.id">
+        <tr v-for="candidate in candidates" :key="candidate.id">
           <td>{{candidate.id}}</td>
-          <td>{{candidate.candidate_name}}</td>
-          <td>{{candidate.kargaxos}}</td>
+          <td>{{candidate.name}}</td>
         </tr>
       </table>
-      <form v-show="data.election_isOpen" class="form-group" @submit.prevent="submit">
-        <select class="form-control select" v-model="form.id">
-          <option :value="candidate.id" :key="candidate.id" v-for="candidate in data.candidates">{{candidate.candidate_name}}</option>
+      <form v-show="isElectionOpen" class="form-group" @submit.prevent="submit">
+        <select class="form-control select" v-model="selectedCandidateId">
+          <option :value="candidate.id" :key="candidate.id" v-for="candidate in candidates">
+            {{candidate.name}}
+          </option>
         </select>
         <nav class="nav">
           <button type="submit" class="btn btn-dark">Vote</button>
         </nav>
       </form>
     </section>
-    <p class="my_accont">Your account</p>
+    <p class="my_accont">Your account: {{address}}</p>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 import moment from 'moment';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions, mapMutations } from 'vuex';
 
 export default {
   data () {
     return {
-      form: {
-        id: ''
-      }
+      selectedCandidateId: 0,
     };
   },
 
   computed: {
     ...mapGetters({
-      data: 'election/data',
-    })
+      candidates: 'election/candidates',
+      time: 'election/time',
+      isElectionOpen: 'election/isOpen',
+      address: 'currentUser/address',
+    }),
   },
 
-  mounted(){
+  mounted() {
     var duration = moment.duration({
       'minutes': 5,
       'seconds': 0
-
     });
 
     var timestamp = new Date(0, 0, 0, 2, 10, 30);
@@ -86,21 +85,13 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      vote: 'election/vote',
+    }),
     submit() {
-      axios.post('/election',this.form)
-      .then(response => {
-          console.log(this.form);
-      });
+      this.vote(this.selectedCandidateId);
     },
   },
 }
 
 </script>
-
-<style>
-  .countdown {
-    font-size: 2em;
-    color: #707070;
-    text-align: right;
-  }
-</style>

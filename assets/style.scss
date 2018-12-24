@@ -1,84 +1,108 @@
 @import "~bootstrap/scss/bootstrap";
 
-.container {
-    width: 80%;
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-left:auto; 
-    margin-right:auto;
-  }
+td,
+th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-  th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-  }
+#title {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 2em;
+}
 
-  #title {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 2em;
-  }
+.countdown_title {
+  font-size: 1em;
+  margin-top: 8%;
+  margin-right: 3%;
+  color: #707070;
+  text-align: right;
+}
 
-  .countdown_title {
-    font-size: 1em;
-    margin-top: 8%;
-    margin-right: 3%;
-    color: #707070;
-    text-align: right;
+.my_accont {
+  margin-top: 80px;
+  text-align: center;
+}
 
-  }
+.btn-dark {
+  margin-top: 20px;
+  width: 100px;
+}
 
-  .my_accont {
-    margin-top: 80px; 
-    text-align: center;
-  }
+.select {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 300px;
+}
 
-  .btn-dark {
-    margin-top: 20px;
-    width: 100px;
-  }
+.form-group {
+  display: flex;
+}
 
-  .select {
-    margin-top: 20px;
-    margin-right: 20px;
-    width: 300px;
-  }
+.watch {
+  margin-left: 72%;
+  text-align: right;
+  font-size: 1em;
+  display: flex;
+}
 
-  .form-group {
-    display: flex;
-  }
+.left_menu {
+  display: flex;
+}
 
-  .watch {
-    margin-left:72%; 
-    text-align: right;
-    font-size: 1em;
-    display: flex;
-  }
+.body {
+  width: 80%;
+  margin: auto;
+  padding: 15%;
+}
 
-  .left_menu {
-    display: flex;
-  }
-  
-  .body {
-    width: 80%;
-    margin-left:auto; 
-    margin-right:auto;
-    margin: auto;
-    padding: 15%;
-  }
+#nomination_end,
+#nomination_start,
+#voting_end,
+#voting_start {
+  width: 100%;
+}
 
-  #nomination_end,#nomination_start, #voting_start, #voting_end {
-    width: 100%;
-  }
+.btn-dark {
+  width: 150px;
+}
 
-  .btn-dark {
-    width: 150px;
-  }
+.btn-link {
+  margin-top: 4%;
+}
 
-  .btn-link {
-    margin-top: 4%;
-  }
+.title {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}
+
+.countdown {
+  font-size: 2em;
+  color: #707070;
+  text-align: right;
+}

@@ -1,37 +1,42 @@
 export const state = () => ({
-  candidates:[
-    {
-      id:1,
-      candidate_name:'User 1',
-      kargaxos:'Kargaxos 1'
-    },{
-      id:2,
-      candidate_name:'User 2',
-      kargaxos:'Kargaxos 2'
-    },{
-      id:3,
-      candidate_name:'User 3',
-      kargaxos:'Kargaxos 3'
-    },{
-      id:4,
-      candidate_name:'User 4',
-      kargaxos:'Kargaxos 4'
-    },{
-      id:5,
-      candidate_name:'User 5',
-      kargaxos:'Kargaxos 5'
-    },
-  ],
-  time: 'asd',
-  election_isOpen: true,
+  candidates: [{
+    id: 1,
+    name: 'User 1',
+  }, {
+    id: 2,
+    name: 'User 2',
+  }, {
+    id: 3,
+    name: 'User 3',
+  }, {
+    id: 4,
+    name: 'User 4',
+  }, {
+    id: 5,
+    name: 'User 5',
+  }],
+  time: new Date(),
+  isOpen: true
 });
 
 export const getters = {
-  data: (state) => {
-    return {
-      candidates: state.candidates,
-      time: state.time,
-      election_isOpen: state.election_isOpen,
-    };
+  candidates: (state) => state.candidates,
+  time: (state) => state.time,
+  isOpen: (state) => state.isOpen,
+};
+
+export const actions = {
+  getCandidates({commit}) {
+    // ----
+    commit('SET_CANDIDATES', data);
+  },
+  vote({ commit }, candidateId) {
+
+  },
+};
+
+export const mutations = {
+  SET_CANDIDATES(state, candidates) {
+    state.candidates = candidates;
   },
 };
