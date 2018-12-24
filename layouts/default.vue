@@ -10,8 +10,8 @@
           <li class="nav-item active">
             <nuxt-link class="nav-link disabled" to="create" title="">Create election</nuxt-link>
           </li>
-          <li class="nav-item">
-            <nuxt-link class="nav-link disabled" to="#" title="">Give access to vote</nuxt-link>
+          <li class="nav-item active">
+            <nuxt-link class="nav-link disabled" to="access" title="">Give access to vote</nuxt-link>
           </li>
         </ul>
       </div>

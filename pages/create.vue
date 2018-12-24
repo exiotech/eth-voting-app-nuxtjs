@@ -4,17 +4,17 @@
       <h3>Create a new election</h3>
         <label for="nomination_start">Nomination Period</label>
       <div class="form-group">
-        <input type="text" v-model.number="form.nomination_start" class="form-control input" id="nomination_start" placeholder="Start">
+        <input type="text" v-model="form.nomination_start" class="form-control input" id="nomination_start" placeholder="Start">
       </div>
       <div class="form-group">
-        <input type="text" v-model.number="form.nomination_end" class="form-control input" id="nomination_end" placeholder="End">
+        <input type="text" v-model="form.nomination_end" class="form-control input" id="nomination_end" placeholder="End">
       </div>
         <label for="voting_start">Voting Period</label>
       <div class="form-group">
-        <input class="form-control input" v-model.number="form.voting_start" type="text" id="voting_start" name="voting_start" placeholder="Start">
+        <input class="form-control input" v-model="form.voting_start" type="text" id="voting_start" name="voting_start" placeholder="Start">
       </div>
       <div class="form-group">
-        <input class="form-control input" v-model.number="form.voting_end" type="text" id="voting_end" name="voting_end" placeholder="End">
+        <input class="form-control input" v-model="form.voting_end" type="text" id="voting_end" name="voting_end" placeholder="End">
       </div>
     </div>
     <div class="form-group">

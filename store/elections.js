@@ -7,17 +7,14 @@ export const getters = {
 };
 
 export const actions = {
-  getCandidates({commit}) {
+  getItems({commit}) {
     // ----
-    commit('SET_CANDIDATES', data);
-  },
-  vote({ commit }, candidateId) {
-
+    commit('SET_ITEMS', data);
   },
 };
 
 export const mutations = {
-  SET_CANDIDATES(state, candidates) {
-    state.candidates = candidates;
+  SET_ITEMS(state, items) {
+    state.items = items;
   },
 };
