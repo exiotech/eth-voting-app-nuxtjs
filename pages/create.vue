@@ -2,7 +2,10 @@
   <form class="form body" @submit.prevent="submit">
     <div >
       <h3>Create a new election</h3>
-        <label for="nomination_start">Nomination Period</label>
+      <div class="my-name">
+          <input type="text" v-model="form.createElection_name" class="form-control"  id="createElection_name" placeholder="name"> <br>
+      </div>
+        <label for="nomination_start">Nomination Period</label>    
       <div class="form-group">
         <input type="text" v-model="form.nomination_start" class="form-control input" id="nomination_start" placeholder="Start">
       </div>
@@ -31,6 +34,7 @@
     data() {
       return {
         form: {
+          createElection_name: '',
           nomination_start: '',
           nomination_end: '',
           voting_start: '',
