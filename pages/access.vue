@@ -22,9 +22,8 @@
     </section>
   </div>
 </template>
-
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   data () {
@@ -47,7 +46,6 @@ export default {
 
   methods: {
     submit() {
-      // this.vote(this.selectedCandidateId);
     },
   },
 }

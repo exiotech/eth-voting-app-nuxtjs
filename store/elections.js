@@ -8,7 +8,6 @@ export const getters = {
 
 export const actions = {
   getItems({commit}) {
-    // ----
     commit('SET_ITEMS', data);
   },
 };
