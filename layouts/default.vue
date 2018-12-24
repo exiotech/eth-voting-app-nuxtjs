@@ -8,10 +8,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <nuxt-link class="nav-link disabled" to="create" title="">Create election</nuxt-link>
+            <nuxt-link class="nav-link " to="create" title="">Create election</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link class="nav-link disabled" to="#" title="">Give access to vote</nuxt-link>
+            <nuxt-link class="nav-link " to="#" title="">Give access to vote</nuxt-link>
           </li>
         </ul>
       </div>
