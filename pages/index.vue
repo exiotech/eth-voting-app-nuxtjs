@@ -1,13 +1,15 @@
 <template>
   <section class="container">
-    <div>
-      <h1 class="title">
-        Wireframe
-      </h1>
-      <h2 class="subtitle">
-        Welcome
+    <div class="text-center">
+      <h2 class="title">
+        Voting App
       </h2>
-      <nuxt-link class="btn btn-link btn-lg btn-block btn-sm" to="election">Start</nuxt-link>
+      <p class="subtitle">
+        Welcome!
+      </p>
+      <nuxt-link class="btn btn-primary btn-lg px-5" to="election">
+        Let's Start
+      </nuxt-link>
     </div>
   </section>
 </template>

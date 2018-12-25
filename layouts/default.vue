@@ -1,18 +1,22 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-      <nuxt-link class="nav-link" to="election" title="">Vote</nuxt-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <nuxt-link class="nav-link " to="create" title="">Create election</nuxt-link>
-          </li>
-          <li class="nav-item active">
-            <nuxt-link class="nav-link disabled" to="access" title="">Give access to vote</nuxt-link>
           <li class="nav-item">
+            <nuxt-link class="nav-link" to="election" title="">Vote</nuxt-link>
+          </li>
+          <li class="nav-item" v-if="isCreator">
+            <nuxt-link class="nav-link " to="add-candidate" title="">Add Candidate</nuxt-link>
+          </li>
+          <!-- <li class="nav-item">
+            <nuxt-link class="nav-link " to="create" title="">Create election</nuxt-link>
+          </li> -->
+          <li class="nav-item" v-if="isCreator">
+            <nuxt-link class="nav-link" to="access" title="">Add Voter</nuxt-link>
           </li>
         </ul>
       </div>
@@ -30,15 +34,24 @@ import { mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
   mounted() {
     this.auth();
+    this.loadChairPerson();
   },
 
   computed: {
     ...mapGetters({
       address: 'currentUser/address',
+      chairperson: 'election/chairPerson'
     }),
+    isCreator() {
+      return this.chairperson === this.address;
+    },
   },
 
   methods: {
+    ...mapActions({
+      loadChairPerson: 'election/loadChairPerson',
+      loadVoterData: 'currentUser/loadVoterData',
+    }),
     ...mapMutations({
       setAddress: 'currentUser/SET_ADDRESS',
     }),
@@ -47,7 +60,7 @@ export default {
         if (window.ethereum) {
           window.ethereum.enable();
         }
-        setTimeout(() => {
+        setInterval(() => {
           const address = window.web3.eth.coinbase;
           if (address !== this.address) {
             this.setAddress(address);
@@ -55,6 +68,13 @@ export default {
         }, 300);
       }
     },
+  },
+  watch: {
+    address(to) {
+      if (to) {
+        this.loadVoterData();
+      }
+    }
   },
 };
 </script>
